@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Maestra de Física (Completa) - Ingeniería Informática</title>
+    
+    <!-- Configuración MathJax para permitir $ como delimitador inline -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Fuentes optimizadas para lectura e impresión -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Fira+Code:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --bg-block: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            line-height: 1.7;
+            color: #334155;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: white;
+        }
+
+        /* Estilos de impresión específicos */
+        @media print {
+            body { padding: 0; font-size: 10.5pt; color: black; }
+            .no-print { display: none; }
+            h1 { font-size: 20pt; border-bottom: 2px solid black; }
+            h2 { font-size: 16pt; color: black; border-bottom: 1px solid #aaa; margin-top: 20px; }
+            h3 { font-size: 13pt; color: black; margin-top: 15px; }
+            .formula-box { border: 1px solid #000; background: none; }
+            table, tr, td, th { border: 1px solid #000; }
+            th { background-color: #eee !important; color: black !important; }
+            .page-break { page-break-before: always; }
+            a { text-decoration: none; color: black; }
+        }
+
+        /* Encabezados */
+        h1, h2, h3, h4 { font-family: 'Inter', sans-serif; color: var(--primary); }
+        
+        h1 { 
+            text-align: center; 
+            font-weight: 800; 
+            margin-bottom: 10px; 
+            letter-spacing: -0.02em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            color: #64748b;
+            font-size: 0.9em;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+            margin-top: 40px;
+            color: var(--accent);
+        }
+
+        h3 {
+            font-size: 1.15em;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            background-color: #f1f5f9;
+            padding: 8px 12px;
+            border-left: 4px solid var(--primary);
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Contenedores de Fórmulas */
+        .formula-box {
+            background-color: var(--bg-block);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 15px 0;
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95em;
+            overflow-x: auto;
+        }
+
+        /* Listas y Texto */
+        ul, ol { padding-left: 20px; margin-bottom: 15px; }
+        li { margin-bottom: 6px; }
+        strong { color: var(--primary); font-weight: 700; }
+        .note { font-size: 0.9em; color: #64748b; font-style: italic; }
+
+        /* Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9em;
+        }
+        th, td { padding: 10px 15px; border: 1px solid var(--border); }
+        th { background-color: var(--primary); color: white; text-align: left; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+
+        /* Estilos para el texto específico del usuario */
+        .content-text {
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+        
+        .sub-header {
+            font-weight: bold;
+            color: var(--primary);
+            margin-top: 15px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>GUÍA DE ESTUDIO Y FORMULARIO MAESTRO</h1>
+    <div class="subtitle">Física para Ingeniería Informática - Temas 1-11</div>
+
+    <!-- BLOQUE I -->
+    <h2>BLOQUE I: ELECTROSTÁTICA (Temas 1, 2, 3 y 4)</h2>
+    <p class="content-text">
+        La electrostática estudia las cargas en reposo. La clave aquí es entender que las fuerzas y campos son vectores (tienen dirección), mientras que el potencial y la energía son escalares (son números), lo que simplifica los cálculos.
+    </p>
+
+    <h3>1. Ley de Coulomb y Campo Eléctrico (T1)</h3>
+    
+    <span class="sub-header">Principio de Superposición (La herramienta clave):</span>
+    <p class="content-text">
+        En el mundo real, rara vez hay solo dos cargas. El campo total en un punto es la suma vectorial de los campos creados por cada carga individual.
+    </p>
+    <p class="content-text">
+        <strong>Estrategia:</strong> No sumes magnitudes directamente. Descompón cada vector $\vec{E}$ en componentes cartesianas $(E_x, E_y)$, suma componente a componente y luego recompón el vector.
+    </p>
+
+    <span class="sub-header">Fuerza y Campo (Definiciones):</span>
+    <div class="formula-box">
+        $$\vec{F}_{12} = k \frac{q_1 q_2}{r^2} \vec{u}_r \quad ; \quad \vec{E} = \frac{\vec{F}}{q_0}$$
+    </div>
+    <p class="content-text">
+        <strong>Constante $k$:</strong> $k \approx 9 \times 10^9 \, \text{N}\cdot\text{m}^2/\text{C}^2$. Recuerda que $k = 1/(4\pi\epsilon_0)$.
+    </p>
+    <p class="content-text">
+        <strong>Interpretación:</strong> $\vec{E}$ es una propiedad del espacio modificada por la carga fuente. Existe aunque no haya carga testigo $q_0$ para sentir la fuerza.
+    </p>
+
+    <span class="sub-header">Distribuciones Continuas (El reto matemático):</span>
+    <p class="content-text">
+        Cuando la carga no es puntual (un cable, una placa), dividimos el objeto en diferenciales de carga $dQ$ y sumamos (integramos).
+    </p>
+    <div class="formula-box">
+        $$\vec{E} = \int k \frac{dQ}{r^2} \vec{u}_r$$
+    </div>
+    
+    <span class="sub-header">Paso a paso para el examen:</span>
+    <ul>
+        <li>Dibuja el diferencial de carga $dQ$ en una posición genérica.</li>
+        <li>Dibuja el vector $d\vec{E}$ que crea ese trocito.</li>
+        <li>Usa la simetría: ¿Se cancelan las componentes verticales u horizontales? Si es así, no las calcules.</li>
+        <li>Sustituye $dQ$ según la geometría: $\lambda dl$ (hilos), $\sigma dS$ (superficies), $\rho dV$ (volúmenes).</li>
+    </ul>
+
+    <h3>2. Ley de Gauss (T2)</h3>
+    <p class="content-text">
+        La Ley de Gauss es una alternativa poderosa a Coulomb, pero solo sirve si hay mucha simetría.
+    </p>
+
+    <span class="sub-header">Fórmula General y Significado:</span>
+    <div class="formula-box">
+        $$\Phi_E = \oint_S \vec{E} \cdot d\vec{S} = \frac{Q_{\text{int}}}{\epsilon_0}$$
+    </div>
+    <p class="content-text">
+        <strong>Interpretación:</strong> El flujo neto (número de líneas de campo que salen menos las que entran) en una superficie cerrada depende exclusivamente de la carga que hay dentro. La carga externa no contribuye al flujo neto.
+    </p>
+
+    <span class="sub-header">Algoritmo de Resolución:</span>
+    <ol>
+        <li>
+            <strong>Identificar Simetría:</strong>
+            <ul>
+                <li>Esférica (Carga puntual, esfera): Usa una superficie gaussiana esférica concéntrica de radio $r$.</li>
+                <li>Cilíndrica (Hilo infinito, cable coaxial): Usa un cilindro de radio $r$ y longitud $L$.</li>
+                <li>Plana (Lámina infinita): Usa una "caja de pastillas" o cilindro que atraviese el plano.</li>
+            </ul>
+        </li>
+        <li><strong>Calcular el Flujo ($\Phi_E$):</strong> Gracias a la simetría, $|\vec{E}|$ es constante en la superficie y paralelo al vector superficie. El flujo se simplifica a $|\vec{E}| \cdot Area_{Lateral}$.</li>
+        <li><strong>Calcular $Q_{int}$:</strong> Suma cuánta carga ha quedado atrapada dentro de tu superficie gaussiana.</li>
+        <li><strong>Despejar $|\vec{E}|$.</strong></li>
+    </ol>
+
+    <h3>3. Potencial Eléctrico (T3)</h3>
+    <p class="content-text">
+        <strong>Analogía de la Altura:</strong> El potencial $V$ es como la "altura" en un mapa topográfico. Las cargas positivas "ruedan" cuesta abajo (hacia menor potencial) y las negativas cuesta arriba (hacia mayor potencial).
+    </p>
+    <div class="formula-box">
+        $$V = k \frac{q}{r} \quad ; \quad \vec{E} = -\vec{\nabla} V$$
+    </div>
+    <p class="content-text">
+        <strong>Nota:</strong> El campo eléctrico $\vec{E}$ siempre apunta hacia donde el potencial disminuye más rápido (cuesta abajo).
+    </p>
+
+    <span class="sub-header">Trabajo y Energía:</span>
+    <p class="content-text">
+        El trabajo lo realiza el campo eléctrico. Si el campo empuja la carga a favor de su movimiento natural, el trabajo es positivo y la energía potencial del sistema baja.
+    </p>
+    <div class="formula-box">
+        $$W_{AB} = -\Delta U = q(V_A - V_B)$$
+    </div>
+    <p class="content-text">
+        <strong>Ojo:</strong> Si te piden "Trabajo realizado por una fuerza externa" (ej. tú moviendo la carga contra el campo), es $-W_{campo}$.
+    </p>
+
+    <h3>4. Conductores, Condensadores y Dieléctricos (T4) - AMPLIADO</h3>
+    <p class="content-text">
+        Este tema es fuente frecuente de errores conceptuales sobre la conservación de carga y energía.
+    </p>
+
+    <span class="sub-header">Propiedades de los Conductores en Equilibrio:</span>
+    <ol>
+        <li><strong>Blindaje:</strong> El campo eléctrico en el interior del material conductor es SIEMPRE CERO. Si hubiera campo, los electrones libres se moverían (y no estaríamos en equilibrio).</li>
+        <li><strong>Equipotencialidad:</strong> Todo el conductor está al mismo voltaje.</li>
+        <li><strong>Jaula de Faraday:</strong> Cualquier carga neta se va a la superficie exterior. No puede haber carga neta en el volumen interior.</li>
+    </ol>
+
+    <span class="sub-header">Condensadores:</span>
+    <p class="content-text">Dispositivos para almacenar energía en forma de campo eléctrico.</p>
+    <div class="formula-box">
+        $$C = \frac{Q}{|\Delta V|}$$
+    </div>
+    <p class="content-text">
+        <strong>Condensador Plano:</strong> $C_0 = \epsilon_0 \frac{S}{d}$. Depende solo de la geometría: más área ($S$) o menos distancia ($d$) aumentan la capacidad.
+    </p>
+
+    <span class="sub-header">El Papel del Dieléctrico (Aislante):</span>
+    <p class="content-text">
+        Al meter un aislante entre placas, las moléculas se polarizan (giran), creando un campo interno que se opone al externo. Esto debilita el campo total y permite almacenar más carga al mismo voltaje.
+    </p>
+    <div class="formula-box">
+        $$C = \kappa C_0 \quad (\kappa \geq 1)$$
+    </div>
+
+    <span class="sub-header">TABLA CRÍTICA DE ANÁLISIS (Memorizar lógica, no solo resultado):</span>
+    <table>
+        <thead>
+            <tr>
+                <th>Situación</th>
+                <th>Condición de Contorno</th>
+                <th>Consecuencias Físicas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Batería CONECTADA al meter dieléctrico</td>
+                <td>$V$ Constante (La pila impone la tensión)</td>
+                <td>La pila bombea más carga para mantener el voltaje. $Q$ aumenta. $U$ aumenta.</td>
+            </tr>
+            <tr>
+                <td>Batería DESCONECTADA al meter dieléctrico</td>
+                <td>$Q$ Constante (La carga está atrapada)</td>
+                <td>El campo se debilita por el dieléctrico, por tanto el voltaje baja ($V=Ed$). $U$ disminuye.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <span class="sub-header">Energía Almacenada:</span>
+    <div class="formula-box">
+        $$U = \frac{1}{2}CV^2 = \frac{1}{2}\frac{Q^2}{C}$$
+    </div>
+
+    <!-- BLOQUE II -->
+    <h2>BLOQUE II: TEORÍA DE CIRCUITOS (Temas 5 y 6)</h2>
+    <p class="content-text">
+        Aquí pasamos de cargas estáticas a cargas en movimiento constante.
+    </p>
+
+    <h3>5. Corriente, Resistencia y Visión Microscópica (T5)</h3>
+    
+    <span class="sub-header">Corriente ($I$) vs. Densidad ($J$):</span>
+    <div class="formula-box">
+        $$I = \frac{dq}{dt} \quad ; \quad \vec{J} = n q \vec{v}_d$$
+    </div>
+    <p class="content-text">
+        <strong>Concepto:</strong> Los electrones se mueven muy lento ($\vec{v}_d$, velocidad de arrastre, mm/s), pero el campo eléctrico (la señal) viaja casi a la velocidad de la luz. Por eso la luz se enciende al instante.
+    </p>
+
+    <span class="sub-header">Resistencia y Geometría:</span>
+    <div class="formula-box">
+        $$R = \rho \frac{L}{S}$$
+    </div>
+    <p class="content-text">
+        <strong>Analogía hidráulica:</strong> La resistencia es como una tubería. Si es larga ($L$ grande), cuesta más pasar el agua. Si es ancha ($S$ grande), cuesta menos.
+    </p>
+
+    <span class="sub-header">Efecto de la Temperatura:</span>
+    <p class="content-text">
+        En los metales, al aumentar la temperatura, los átomos vibran más y "estorban" más a los electrones. La resistencia sube.
+    </p>
+    <div class="formula-box">
+        $$\rho(T) = \rho_0 [1 + \alpha (T - T_0)]$$
+    </div>
+
+    <span class="sub-header">Fuentes Reales (Lo que no te dicen los diagramas simples):</span>
+    <p class="content-text">
+        Una batería real se calienta. Esto se modela con una resistencia interna $r$.
+    </p>
+    <p class="content-text">
+        <strong>Ecuación del circuito:</strong> $\varepsilon = I(R_{ext} + r)$.
+    </p>
+
+    <h3>6. Análisis de Circuitos CC (T6) - METODOLOGÍA INFALIBLE</h3>
+    <p class="content-text">
+        Para resolver mallas, el orden es vital. Un error de signo arruina todo el problema.
+    </p>
+
+    <ol>
+        <li><strong>Definición de Variables:</strong> Dibuja corrientes de malla ($I_1, I_2...$) en sentido horario. No importa si el sentido real es otro; las matemáticas lo corregirán (saldrá negativa).</li>
+        <li><strong>Leyes de Kirchhoff:</strong>
+            <ul>
+                <li><strong>Nudos:</strong> "Lo que entra es igual a lo que sale". $\sum I_{in} = \sum I_{out}$.</li>
+                <li><strong>Mallas:</strong> "La suma de subidas y bajadas de voltaje en una vuelta es cero". $\sum \Delta V = 0$.</li>
+            </ul>
+        </li>
+        <li><strong>Convenio de Signos (La Regla de Oro):</strong>
+            <ul>
+                <li><strong>Resistencias:</strong> Siempre restan potencial en la dirección de la corriente que has dibujado. Caída = $-I \cdot R$.</li>
+                <li><strong>Fuentes de Voltaje:</strong> Fíjate por dónde sales al recorrer la malla.
+                    <ul>
+                        <li>Sales por el palo largo ($+$): Escribe $+\varepsilon$.</li>
+                        <li>Sales por el palo corto ($-$): Escribe $-\varepsilon$.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ol>
+
+    <span class="sub-header">Balance de Potencias:</span>
+    <div class="formula-box">
+        $$P_{\text{suministrada}} = P_{\text{disipada}}$$
+    </div>
+    <p class="content-text">
+        <strong>Nota:</strong> Si calculas la potencia de una fuente y sale negativa ($P = V \cdot I < 0$), significa que la fuente está actuando como carga (se está cargando, como la batería de un móvil enchufado).
+    </p>
+
+    <!-- BLOQUE III -->
+    <div class="page-break"></div>
+    <h2>BLOQUE III: ELECTROMAGNETISMO (Temas 7 y 8)</h2>
+    <p class="content-text">
+        El campo magnético es más complejo porque es intrínsecamente tridimensional (productos vectoriales).
+    </p>
+
+    <h3>7. Campo Magnético y Fuerzas (T7)</h3>
+    
+    <span class="sub-header">Fuerza de Lorentz (El motor del movimiento):</span>
+    <div class="formula-box">
+        $$\vec{F} = q (\vec{v} \times \vec{B})$$
+    </div>
+    <p class="content-text"><strong>Consecuencias:</strong></p>
+    <ol>
+        <li>La fuerza magnética nunca realiza trabajo ($W=0$) porque siempre es perpendicular a la velocidad. Solo cambia la dirección, no la rapidez (energía cinética constante).</li>
+        <li><strong>Ciclotrón:</strong> Si $\vec{v} \perp \vec{B}$, la partícula gira. $F_m = F_c \Rightarrow qvB = mv^2/R$.</li>
+    </ol>
+    <p class="content-text">
+        <strong>Radio de giro:</strong> $R = \frac{mv}{qB}$.
+    </p>
+
+    <span class="sub-header">Fuentes de Campo (¿Quién crea B?):</span>
+    <p class="content-text">
+        <strong>Ley de Biot-Savart (General):</strong> Para cualquier forma de corriente.
+    </p>
+    <div class="formula-box">
+        $$d\vec{B} = \frac{\mu_0 I}{4\pi} \frac{d\vec{l} \times \vec{u}_r}{r^2}$$
+    </div>
+    
+    <p class="content-text">
+        <strong>Ley de Ampère (Simetría):</strong> Útil para hilos infinitos y solenoides.
+    </p>
+    <div class="formula-box">
+        $$\oint \vec{B} \cdot d\vec{l} = \mu_0 I_{enc}$$
+    </div>
+    <ul>
+        <li><strong>Hilo Infinito:</strong> $B = \frac{\mu_0 I}{2\pi r}$. El campo decae con la distancia.</li>
+        <li><strong>Solenoide:</strong> $B = \mu_0 n I$. Campo uniforme y potente en el interior.</li>
+    </ul>
+
+    <h3>8. Inducción y Ley de Faraday (T8)</h3>
+    <p class="content-text">
+        Este es el principio de generación de electricidad (centrales, dinamos).
+    </p>
+
+    <span class="sub-header">Concepto de Flujo Magnético:</span>
+    <p class="content-text">Cantidad de campo que "pincha" una superficie.</p>
+    <div class="formula-box">
+        $$\Phi_B = \int \vec{B} \cdot d\vec{S} = B \cdot S \cdot \cos(\theta)$$
+    </div>
+
+    <span class="sub-header">Ley de Faraday-Lenz:</span>
+    <div class="formula-box">
+        $$\varepsilon_{\text{ind}} = - N \frac{d\Phi_B}{dt}$$
+    </div>
+    <p class="content-text">
+        <strong>El Signo Menos (Ley de Lenz):</strong> La naturaleza odia los cambios de flujo magnético.
+    </p>
+    
+    <span class="sub-header">Algoritmo mental:</span>
+    <ol>
+        <li>¿Hacia dónde apunta el campo externo $\vec{B}_{ext}$?</li>
+        <li>¿El flujo está aumentando o disminuyendo?</li>
+        <li>Si aumenta: El campo inducido $\vec{B}_{ind}$ se opone a $\vec{B}_{ext}$.</li>
+        <li>Si disminuye: El campo inducido $\vec{B}_{ind}$ apoya a $\vec{B}_{ext}$ (intenta mantenerlo).</li>
+        <li>Usa la regla de la mano derecha para hallar la dirección de la corriente inducida que crea ese $\vec{B}_{ind}$.</li>
+    </ol>
+
+    <span class="sub-header">Autoinducción ($L$):</span>
+    <p class="content-text">
+        Una bobina no quiere que le cambies la corriente. Si intentas cortarla de golpe, genera un pico de voltaje para intentar mantenerla.
+    </p>
+    <div class="formula-box">
+        $$\varepsilon = -L \frac{dI}{dt} \quad ; \quad U_B = \frac{1}{2} L I^2$$
+    </div>
+
+    <!-- BLOQUE IV -->
+    <h2>BLOQUE IV: CORRIENTE ALTERNA (Tema 9)</h2>
+
+    <h3>9. Circuitos RLC y Fasores</h3>
+    <p class="content-text">
+        En AC, voltajes y corrientes son ondas sinusoidales. Usar trigonometría es difícil, así que usamos fasores (vectores rotatorios/números complejos).
+    </p>
+
+    <span class="sub-header">Impedancia Compleja ($Z$):</span>
+    <p class="content-text">Es la resistencia generalizada.</p>
+    <ul>
+        <li><strong>Resistor ($R$):</strong> En fase. $Z_R = R$.</li>
+        <li><strong>Inductor ($L$):</strong> Se opone a cambios rápidos. $Z_L = j\omega L$. Adelanta el voltaje (la tensión llega antes que la corriente).</li>
+        <li><strong>Capacitor ($C$):</strong> Se opone a voltaje continuo. $Z_C = -j \frac{1}{\omega C}$. Retrasa el voltaje.</li>
+    </ul>
+
+    <span class="sub-header">Análisis de Circuito Serie RLC:</span>
+    <div class="formula-box">
+        $$Z_{\text{total}} = R + j\left(\omega L - \frac{1}{\omega C}\right)$$
+    </div>
+
+    <p class="content-text">
+        <strong>Resonancia:</strong> Situación mágica donde los efectos de la bobina y el condensador se cancelan ($X_L = X_C$). La impedancia es mínima ($Z=R$) y la corriente es máxima. Frecuencia de resonancia: $\omega_0 = 1/\sqrt{LC}$.
+    </p>
+
+    <span class="sub-header">Potencias (Triángulo de Potencias):</span>
+    <ul>
+        <li><strong>Activa ($P$, Watts):</strong> Energía útil (calor, luz, trabajo). Solo la consume $R$. $P = V_{rms} I_{rms} \cos \phi$.</li>
+        <li><strong>Reactiva ($Q$, VAR):</strong> Energía que "baila" entre el campo magnético de la bobina y el eléctrico del condensador. No produce trabajo útil pero carga la línea. $Q = V_{rms} I_{rms} \sin \phi$.</li>
+        <li><strong>Aparente ($S$, VA):</strong> Lo que hay que generar. $S = \sqrt{P^2 + Q^2}$.</li>
+        <li><strong>Factor de Potencia:</strong> $\cos \phi = P/S$. Indica la eficiencia. Queremos que sea cercano a 1.</li>
+    </ul>
+
+    <!-- BLOQUE V -->
+    <h2>BLOQUE V: SEMICONDUCTORES (Temas 10 y 11) - FUNDAMENTAL PARA INFORMÁTICA</h2>
+    <p class="content-text">
+        Esta es la base física de los ordenadores. Entender esto distingue a un ingeniero informático de un programador.
+    </p>
+
+    <h3>10. Teoría de Bandas</h3>
+    <ul>
+        <li><strong>Aislantes vs Conductores:</strong> En un conductor, los electrones tienen asientos libres justo al lado (bandas solapadas) para moverse. En un aislante/semiconductor, hay un precipicio energético (Gap) que deben saltar.</li>
+        <li><strong>El Salto Térmico:</strong> A mayor temperatura, más electrones tienen energía térmica suficiente para saltar el Gap de la Banda de Valencia a la de Conducción.</li>
+    </ul>
+    <p class="content-text">
+        <strong>Resultado:</strong> A diferencia de los metales, los semiconductores conducen MEJOR caliente que fríos.
+    </p>
+
+    <h3>11. Dispositivos: El Diodo y el MOSFET</h3>
+    
+    <span class="sub-header">La Unión PN (Diodo):</span>
+    <p class="content-text">
+        Al unir un semiconductor tipo P (huecos) y uno tipo N (electrones), se aniquilan en la frontera creando una Zona de Agotamiento sin portadores y un campo eléctrico interno (Barrera de potencial $\approx 0.7V$).
+    </p>
+    <ul>
+        <li><strong>Polarización Directa:</strong> Empujamos portadores contra la barrera, reduciéndola. Pasa corriente.</li>
+        <li><strong>Polarización Inversa:</strong> Tiramos de los portadores alejándolos de la barrera. La zona aislante crece. No pasa corriente.</li>
+    </ul>
+    
+    <span class="sub-header">Ecuación de Shockley:</span>
+    <div class="formula-box">
+        $$I = I_s (e^{V / (n V_T)} - 1)$$
+    </div>
+    <p class="content-text">
+        $V_T \approx 26mV$ a 300K. Un pequeño cambio en $V$ causa un cambio gigante en $I$ (exponencial).
+    </p>
+
+    <span class="sub-header">El Transistor MOSFET (Metal-Oxide-Semiconductor Field-Effect Transistor):</span>
+    <p class="content-text">
+        Es un condensador que controla una corriente.
+    </p>
+    <p class="content-text"><strong>Estructura:</strong> Tenemos una "Puerta" (Gate) aislada por óxido sobre un sustrato semiconductor.</p>
+
+    <span class="sub-header">El Efecto Campo (Canal N):</span>
+    <ol>
+        <li>Aplicamos voltaje positivo en la Puerta ($V_G > 0$).</li>
+        <li>El campo eléctrico atraviesa el óxido y repele los huecos del sustrato P (que son positivos).</li>
+        <li>Atrae electrones minoritarios a la superficie, justo debajo del óxido.</li>
+        <li><strong>Inversión:</strong> Si $V_G > V_{umbral}$, se acumulan tantos electrones que el material P se comporta localmente como N. Se ha creado un "puente" o canal.</li>
+        <li>La corriente ahora puede fluir entre Fuente (Source) y Drenador (Drain).</li>
+    </ol>
+
+    <span class="sub-header">Regiones de Operación (Resumen para examen):</span>
+    <ul>
+        <li><strong>Corte:</strong> $V_{GS} < V_t$. No hay canal. $I_D = 0$. (Interruptor abierto / Lógica '0' o '1').</li>
+        <li><strong>Ohmica/Lineal:</strong> $V_{GS} > V_t$ y $V_{DS}$ pequeño. Se comporta como una resistencia controlada por voltaje.</li>
+        <li><strong>Saturación:</strong> $V_{DS}$ grande. El canal se estrangula en el extremo, la corriente se vuelve constante. Usado en amplificación.</li>
+    </ul>
+
+</body>
+</html>
